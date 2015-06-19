@@ -11,8 +11,16 @@ class Game
         void update();
         void draw();
         bool isWindowOpen();
+
+        int randint(int low, int high, int seed);
+        int randint(int low, int high);
     protected:
     private:
         RenderWindow* window;
+
+        Time dt;
+        Time totalTime;
+        Clock clock;
+        int frame = 0;
 
 };

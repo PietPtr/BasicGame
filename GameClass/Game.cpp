@@ -28,6 +28,11 @@ void Game::update()
             }
         }
     }
+
+    dt = clock.restart();
+    totalTime += dt;
+
+    frame++;
 }
 
 void Game::draw()
@@ -40,4 +45,19 @@ void Game::draw()
 bool Game::isWindowOpen()
 {
     return window->isOpen();
+}
+
+int Game::randint(int low, int high, int seed)
+{
+    srand(seed);
+    int value = rand() % (high + 1 - low) + low;
+    return value;
+}
+
+int Game::randint(int low, int high)
+{
+    int value = rand() % (high + 1 - low) + low;
+    srand(totalTime.asMicroseconds() * value * rand());
+
+    return value;
 }
