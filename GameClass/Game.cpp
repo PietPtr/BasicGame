@@ -10,7 +10,7 @@ Game::Game(RenderWindow* _window)
 
 void Game::initialize()
 {
-
+    loadAudio(audioFileNames);
 }
 
 void Game::update()
@@ -45,6 +45,15 @@ void Game::draw()
 bool Game::isWindowOpen()
 {
     return window->isOpen();
+}
+
+void Game::loadAudio(std::vector<std::string> audioFileNames)
+{
+    for (int i = 0; i < audioFileNames.size(); i++)
+    {
+        sfx.push_back(new Audio());
+        sfx.back()->init(audioFileNames[i]);
+    }
 }
 
 int Game::randint(int low, int high, int seed)
