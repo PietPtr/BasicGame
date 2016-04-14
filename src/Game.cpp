@@ -11,6 +11,7 @@ Game::Game(RenderWindow* _window)
 void Game::initialize()
 {
     loadAudio(audioFileNames);
+    loadTextures(textureFileNames);
 }
 
 void Game::update()
@@ -56,11 +57,15 @@ void Game::loadAudio(std::vector<std::string> audioFileNames)
     }
 }
 
-int Game::randint(int low, int high, int seed)
+void Game::loadTextures(std::vector<std::string> textureFileNames)
 {
-    srand(seed);
-    int value = rand() % (high + 1 - low) + low;
-    return value;
+    for (int i = 0; i < textureFileNames.size(); i++)
+    {
+        //textures.push_back()
+        Texture texture;
+        if (!texture.loadFromFile("textures/" + textureFileNames.at(i)))
+            window->close();
+    }
 }
 
 int Game::randint(int low, int high)

@@ -14,6 +14,7 @@ class Game
         bool isWindowOpen();
 
         void loadAudio(std::vector<std::string> fileNames);
+        void loadTextures(std::vector<std::string> fileNames);
 
         int randint(int low, int high, int seed);
         int randint(int low, int high);
@@ -26,7 +27,9 @@ class Game
         Clock clock;
         int frame = 0;
 
-        std::vector<std::string> audioFileNames { "first.wav", "second.wav" };
+        std::vector<std::string> audioFileNames { };
+        std::vector<std::string> textureFileNames { };
 
         std::vector<Audio*> sfx;
+        std::vector<Texture> textures;
 };
