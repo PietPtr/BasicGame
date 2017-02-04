@@ -29,7 +29,7 @@ class Game
         bool focus = false;
 
         std::vector<std::string> audioFileNames { };
-        std::vector<std::string> textureFileNames { };
+        std::vector<std::string> textureFileNames { "test.png" };
 
         std::vector<Audio*> sfx;
         std::vector<Texture> textures;
