@@ -26,6 +26,7 @@ class Game
         Time totalTime;
         Clock clock;
         int frame = 0;
+        bool focus = false;
 
         std::vector<std::string> audioFileNames { };
         std::vector<std::string> textureFileNames { };

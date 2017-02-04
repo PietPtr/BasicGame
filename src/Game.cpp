@@ -28,6 +28,12 @@ void Game::update()
                 window->close();
             }
         }
+        if (event.type == Event::LostFocus) {
+            focus = false;
+        }
+        if (event.type == Event::GainedFocus) {
+            focus = true;
+        }
     }
 
     dt = clock.restart();
@@ -61,10 +67,10 @@ void Game::loadTextures(std::vector<std::string> textureFileNames)
 {
     for (int i = 0; i < textureFileNames.size(); i++)
     {
-        //textures.push_back()
         Texture texture;
         if (!texture.loadFromFile("textures/" + textureFileNames.at(i)))
             window->close();
+        textures.push_back(texture);
     }
 }
 

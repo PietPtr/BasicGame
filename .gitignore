@@ -1,1 +1,8 @@
 *.save
+*.o
+*.cbp
+*.depend
+*.layout
+game
+bin
+obj
