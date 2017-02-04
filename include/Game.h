@@ -28,6 +28,9 @@ class Game
         int frame = 0;
         bool focus = false;
 
+        int windowWidth = 1280;
+        int windowHeight = 720;
+
         std::vector<std::string> audioFileNames { };
         std::vector<std::string> textureFileNames { "test.png" };
 

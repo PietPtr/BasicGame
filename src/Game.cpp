@@ -34,6 +34,11 @@ void Game::update()
         if (event.type == Event::GainedFocus) {
             focus = true;
         }
+
+        if (event.type == Event::Resized) {
+            windowWidth = event.size.width;
+            windowHeight = event.size.height;
+        }
     }
 
     dt = clock.restart();
