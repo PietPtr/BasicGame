@@ -7,9 +7,7 @@ int main()
 {
     srand(time(NULL));
 
-    int windowWidth = 1280;
-    int windowHeigth = 720;
-    RenderWindow window(VideoMode(windowWidth, windowHeigth), "Float");
+    RenderWindow window(VideoMode(1280, 720), "Float");
     window.setVerticalSyncEnabled(true);
 
     Game game(&window);
@@ -24,5 +22,3 @@ int main()
 
     return 0;
 }
-
-
