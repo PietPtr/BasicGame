@@ -3,6 +3,13 @@
 *.cbp
 *.depend
 *.layout
+*.db
+*.filters
+*.user
+*.vs
+*.opendb
+*.vcxproj
 game
 bin
 obj
+Debug
