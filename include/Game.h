@@ -18,6 +18,8 @@ class Game
 
         int randint(int low, int high, int seed);
         int randint(int low, int high);
+
+        void Game::takeScreenshot();
     protected:
     private:
         RenderWindow* window;

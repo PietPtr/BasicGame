@@ -27,6 +27,10 @@ void Game::update()
             {
                 window->close();
             }
+            if (event.key.code == Keyboard::F1)
+            {
+                takeScreenshot();
+            }
         }
         if (event.type == Event::LostFocus) {
             focus = false;
@@ -61,15 +65,18 @@ bool Game::isWindowOpen()
 
 void Game::loadAudio(std::vector<std::string> audioFileNames)
 {
+    std::cout << "Loading " << audioFileNames.size() << " audio files..." << "\n";
     for (int i = 0; i < audioFileNames.size(); i++)
     {
         sfx.push_back(new Audio());
-        sfx.back()->init(audioFileNames[i]);
+        sfx.back()->init("audio/" + audioFileNames[i]);
+        std::cout << "Loaded audio " << "audio/" + audioFileNames[i] << "\n";
     }
 }
 
 void Game::loadTextures(std::vector<std::string> textureFileNames)
 {
+    std::cout << "Loading " << textureFileNames.size() << " textures...\n";
     for (int i = 0; i < textureFileNames.size(); i++)
     {
         Texture texture;
@@ -79,6 +86,12 @@ void Game::loadTextures(std::vector<std::string> textureFileNames)
         textures.push_back(texture);
         std::cout << "Loaded " << path << "\n";
     }
+}
+
+void Game::takeScreenshot()
+{
+    Image screenshot = window->capture();
+    screenshot.saveToFile("./screenshot" + std::to_string(randint(0, 65546)) + ".png");
 }
 
 int Game::randint(int low, int high)
