@@ -19,7 +19,7 @@ class Game
         int randint(int low, int high, int seed);
         int randint(int low, int high);
 
-        void Game::takeScreenshot();
+        void takeScreenshot();
     protected:
     private:
         RenderWindow* window;
@@ -33,9 +33,9 @@ class Game
         int windowWidth = 1280;
         int windowHeight = 720;
 
-        std::vector<std::string> audioFileNames { };
+        std::vector<std::string> audioFileNames { "test.wav" };
         std::vector<std::string> textureFileNames { "test.png" };
 
-        std::vector<Audio*> sfx;
-        std::vector<Texture> textures;
+        std::map<std::string, Audio*> sfx;
+        std::map<std::string, Texture> textures;
 };

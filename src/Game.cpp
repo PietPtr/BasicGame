@@ -48,12 +48,18 @@ void Game::update()
     dt = clock.restart();
     totalTime += dt;
 
+    if (frame % 100 == 0)
+        sfx["test.wav"]->play();
+
     frame++;
 }
 
 void Game::draw()
 {
     window->clear();
+
+    Sprite test(textures["test.png"]);
+    window->draw(test);
 
     window->display();
 }
@@ -68,8 +74,8 @@ void Game::loadAudio(std::vector<std::string> audioFileNames)
     std::cout << "Loading " << audioFileNames.size() << " audio files..." << "\n";
     for (int i = 0; i < audioFileNames.size(); i++)
     {
-        sfx.push_back(new Audio());
-        sfx.back()->init("audio/" + audioFileNames[i]);
+        sfx.insert(std::pair<std::string, Audio*>(audioFileNames[i], new Audio()));
+        sfx[audioFileNames[i]]->init("audio/" + audioFileNames[i]);
         std::cout << "Loaded audio " << "audio/" + audioFileNames[i] << "\n";
     }
 }
@@ -83,7 +89,7 @@ void Game::loadTextures(std::vector<std::string> textureFileNames)
         std::string path = "textures/" + textureFileNames.at(i);
         if (!texture.loadFromFile(path))
             window->close();
-        textures.push_back(texture);
+        textures.insert(std::pair<std::string, Texture>(textureFileNames[i], texture));
         std::cout << "Loaded " << path << "\n";
     }
 }
