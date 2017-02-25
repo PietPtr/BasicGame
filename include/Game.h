@@ -8,6 +8,7 @@ class Game
 {
     public:
         Game(RenderWindow* window);
+        static Game* instance;
         void initialize();
         void update();
         void draw();

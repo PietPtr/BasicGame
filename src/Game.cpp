@@ -3,8 +3,11 @@
 
 using namespace sf;
 
+Game* Game::instance;
+
 Game::Game(RenderWindow* _window)
 {
+    Game::instance = this;
     window = _window;
 }
 
